@@ -1,0 +1,13 @@
+import pandas as pd
+data = pd.read_csv("C:/Users/safva/Downloads/iris.csv")
+print(data.head)
+print(data.isnull().sum())
+data.dropna()
+print(data.dtypes)
+data.describe()
+data.hist(figsize=(10,8))
+plt.show()
+numeric_data=data.select_dtypes(include=['float64','int64'])
+plt.figure(figsize=(8,6))
+sns.heatmap(numeric_data.corr(),annot=True,cmap='coolwarm',linewidths=0.5)
+plt.show()
